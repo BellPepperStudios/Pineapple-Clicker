@@ -1,0 +1,62 @@
+<html>
+  <body style="background-color:green">
+    <h1 style="color:yellow">Pineapple Clicker</h1>
+    
+    <p style="color:yellow">You have <span id="moneyadd">0</span> pineapple</p>
+    <p style="color:yellow">Your pineapple value is <span id="value">1</span></p>
+    
+    <button style="button" onclick="AddMoney()">Click Me</button>
+    <h2 style="color:yellow">Shop</h2>
+    
+    <ul>
+      <li>
+        <button style="button" onclick="Buy1()">Better pineapple: cost: <span id="cost1">20</span></button>
+      </li>
+      
+      <li>
+        <button style="button" onclick="Buy2()">Pineapple farmer: cost: <span id="cost2">50</span></button>
+      </li>
+    </ul>
+    
+    <script>
+    var Money = 0;
+    var value = 1;
+    var BuyCost1 = 20;
+    var BuyCost2 = 50;
+    var farmers = 0;
+    
+      function AddMoney(){
+        Money += value;
+        document.getElementById("moneyadd").innerHTML = Money;
+      }
+      
+      function Buy1(){
+        if (Money >= BuyCost1){
+          Money -= BuyCost1;
+          BuyCost1 += 20;
+          value++;
+          document.getElementById("moneyadd").innerHTML = Money;
+          document.getElementById("value").innerHTML = value;
+          document.getElementById("cost1").innerHTML = BuyCost1;
+        }
+      }
+      
+      function Buy2(){
+        if (Money >= BuyCost2){
+          Money -= BuyCost2;
+          BuyCost1 += 30;
+          farmers++;
+          document.getElementById("moneyadd").innerHTML = Money;
+          document.getElementById("farmers").innerHTML = farmers;
+          document.getElementById("cost2").innerHTML = BuyCost2;
+        }
+      }
+      
+      setInterval(function (){
+        Money += farmers;
+        document.getElementById("moneyadd").innerHTML = Money;
+          document.getElementById("farmers").innerHTML = farmers;
+      }, 1000);
+    </script>
+  </body>
+</html>
